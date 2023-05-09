@@ -1,10 +1,15 @@
 <template>
+  <div id="nav">
+    <RouterLink to="/">home</RouterLink>
+    <RouterLink to="/brazil">brazil</RouterLink>
+    <RouterLink to="/hawaii">hawaii</RouterLink>
+    <RouterLink to="/jamaica">jamaica</RouterLink>
+    <RouterLink to="/panama">panama</RouterLink>
+  </div>
 
-  <RouterLink to="/">home</RouterLink>
-  <RouterLink to="/about">about</RouterLink>
-  <routerView></routerView>
+  <div class="container">
+    <routerView></routerView>
+  </div>
 </template>
-<script setup lang="ts">
-</script>
-<style scoped>
-</style>
+<script setup lang="ts"></script>
+<style scoped></style>
