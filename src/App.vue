@@ -1,15 +1,10 @@
 <template>
-  <div id="nav">
-    <RouterLink to="/">home</RouterLink>
-    <RouterLink to="/brazil">brazil</RouterLink>
-    <RouterLink to="/hawaii">hawaii</RouterLink>
-    <RouterLink to="/jamaica">jamaica</RouterLink>
-    <RouterLink to="/panama">panama</RouterLink>
-  </div>
-
+  <TheNavigation />
   <div class="container">
     <routerView></routerView>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheNavigation from "./components/TheNavigation.vue";
+</script>
 <style scoped></style>
