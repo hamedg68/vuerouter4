@@ -3,7 +3,11 @@
     <h1>All destinations</h1>
 
     <div class="destinations">
-      <RouterLink v-for="i in destinations" :key="i.id" :to="i.slug">
+      <RouterLink
+        v-for="i in destinations"
+        :key="i.id"
+        :to="{ name: 'destination.show', params: { id: i.id } }"
+      >
         <h2>{{ i.name }}</h2>
         <img :src="`/images/${i.image}`" :alt="i.name" />
       </RouterLink>
