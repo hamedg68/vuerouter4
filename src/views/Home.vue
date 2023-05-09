@@ -6,7 +6,7 @@
       <RouterLink
         v-for="i in destinations"
         :key="i.id"
-        :to="{ name: 'destination.show', params: { id: i.id } }"
+        :to="{ name: 'destination.show', params: { id: i.id, slug: i.slug } }"
       >
         <h2>{{ i.name }}</h2>
         <img :src="`/images/${i.image}`" :alt="i.name" />
