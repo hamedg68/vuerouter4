@@ -7,14 +7,22 @@ const routes = [
     path: "/destination/:id/:slug",
     name: "destination.show",
     component: () => import("@/views/DestinationShow.vue"),
-    children:[
+    children: [
       {
         path: ":experienceSlug",
         name: "experience.show",
         component: () => import("@/views/ExperienceShow.vue"),
-        props: (route: any) => ({ ...route.params, id: parseInt(route.params.id) }),
-      }
-    ]
+        props: (route: any) => ({
+          ...route.params,
+          id: parseInt(route.params.id),
+        }),
+      },
+    ],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("@/views/NotFound.vue"),
   },
 ];
 
