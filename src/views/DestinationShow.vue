@@ -18,6 +18,8 @@
         <Experience :experience="i"> </Experience>
       </RouterLink>
     </div>
+
+    <RouterView></RouterView>
   </section>
 </template>
 
