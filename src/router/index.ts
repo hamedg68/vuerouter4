@@ -8,6 +8,12 @@ const routes = [
     name: "destination.show",
     component: () => import("@/views/DestinationShow.vue"),
   },
+  {
+    path: "/destination/:id/:slug/:experienceSlug",
+    name: "experience.show",
+    component: () => import("@/views/ExperienceShow.vue"),
+    props: (route: any) => ({ ...route.params, id: parseInt(route.params.id) }),
+  },
 ];
 
 const router = createRouter({
