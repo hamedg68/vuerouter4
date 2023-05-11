@@ -12,3 +12,13 @@ It is important to note that whatever is returned from the props function is all
 
 ## Transition
 for the transition component to apply the proper classes to each page, all the pages need to have a single root element.
+
+## Route Guards
+There are a number of ways to hook into the route navigation process
+1. globally
+2. per-route
+3. in-component
+
+`tip:`
+If we want to keep the wrong URL when navigate to 404 not found page, we can do that by returning the route record with the name not found
+
