@@ -10,3 +10,5 @@ Setting the route records props property to a function is the most versatile. It
 
 It is important to note that whatever is returned from the props function is all of the props that will be passed to the component
 
+## Transition
+for the transition component to apply the proper classes to each page, all the pages need to have a single root element.
