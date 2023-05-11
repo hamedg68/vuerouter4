@@ -45,6 +45,18 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   linkActiveClass: "my-link-active",
+  scrollBehavior(to, from, savedPosition) {
+    return (
+      savedPosition ||
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ top: 0, behavior: "smooth" });
+        }, 300); //300 ms is set because transition on router-view set to 300 ms
+      })
+    );
+    // return savedPosition || { top: 0 };
+    // return { top: 0, left: 0, behavior: 'auto' };
+  },
 });
 
 export default router;
