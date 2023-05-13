@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const state = reactive({
   form: {
@@ -33,9 +33,11 @@ const state = reactive({
 });
 
 const router = useRouter();
+const route = useRoute();
 function login() {
   const username = state.form.username;
   (window as any).user = username;
-  router.push({ name: "protected" });
+  const redirectPath = (route.query.redirect as string) || "/protected";
+  router.push(redirectPath);
 }
 </script>
