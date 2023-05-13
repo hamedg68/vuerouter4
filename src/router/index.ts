@@ -3,7 +3,17 @@ import Home from "@/views/Home.vue";
 import sourceData from "@/data.json";
 
 const routes = [
-  { path: "/", name: "home", component: Home },
+  { path: "/", name: "Home", component: Home },
+  { path: "/login", name: "login", component: import("@/views/Login.vue") },
+  {
+    path: "/protected",
+    name: "protected",
+    component: import("@/views/Protected.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+
   {
     path: "/destination/:id/:slug",
     name: "destination.show",
@@ -57,6 +67,12 @@ const router = createRouter({
     // return savedPosition || { top: 0 };
     // return { top: 0, left: 0, behavior: 'auto' };
   },
+});
+
+router.beforeEach((to, from) => {
+  if (to.meta.requiresAuth && !(window as any).user) {
+    return { name: "login" };
+  }
 });
 
 export default router;
