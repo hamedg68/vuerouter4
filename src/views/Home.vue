@@ -2,6 +2,7 @@
   <div class="home">
     <h1>All destinations</h1>
 
+    <button @click="triggerRouterError()">Go to home page</button>
     <div class="destinations">
       <RouterLink
         v-for="i in destinations"
@@ -18,6 +19,21 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import sourceData from "@/data.json";
-
+import {
+  isNavigationFailure,
+  NavigationFailureType,
+  useRouter,
+} from "vue-router";
 const destinations = ref(sourceData.destinations);
+
+const router = useRouter();
+async function triggerRouterError() {
+  const navigationFailure = await router.push("/");
+  if (
+    isNavigationFailure(navigationFailure, NavigationFailureType.duplicated)
+  ) {
+    console.log("to", navigationFailure.to);
+    console.log("from", navigationFailure.from);
+  }
+}
 </script>
