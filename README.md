@@ -27,3 +27,16 @@ Query params can be used for a number of different things, including storing sea
 
 ## Named Views
 Using named views in order to compose custom layouts per route.
+
+## Routes’ Matching Syntax
+Using regular expressions to match route param, for example only numbers `path: "/example/:id(//d+)"`.
+
+You can use regular expressions to have two different pages map to the same path `{path: "/example/:id(//d+)" , name : 'order'} , {path: "/productName" , name : 'product'}`.
+
+Also using regular expressions to create repeatable params with the plus sign, this means no matter how many slashes I put after slash example I'll always routed to this page. `path: "/example/:id+"` => the route can be `localhost:3000/example/1/2/3/4/5`.
+
+Another example of repeatable params which can be only numbers `path: "/example/:id(//d+)+"`
+
+To make param to optional you can use `*` the example is `path: "/example/:id(//d+)*`
+
+Finally to make the param optional without to be allowing it to be repeatable you can use the question mark instead of asterisk, `path: "/example/:id(//d+)?` 
