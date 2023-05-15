@@ -25,3 +25,5 @@ If we want to keep the wrong URL when navigate to 404 not found page, we can do 
 ## Query Params
 Query params can be used for a number of different things, including storing search parameters for a search results page or, in our case, storing the path of a route to redirect to after user login.
 
+## Named Views
+Using named views in order to compose custom layouts per route.
