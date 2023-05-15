@@ -18,7 +18,8 @@ const router = useRouter();
 const username = ref((window as any).user);
 
 function logout() {
-  (window as any).user = null;
-  router.push({ name: "Home" });
+  // (window as any).user = null;
+  // router.push({ name: "Home", hash: "#logout" });
+  router.push({ name: "Home", query: { logout: null } });
 }
 </script>
