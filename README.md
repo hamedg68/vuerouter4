@@ -40,3 +40,28 @@ Another example of repeatable params which can be only numbers `path: "/example/
 To make param to optional you can use `*` the example is `path: "/example/:id(//d+)*`
 
 Finally to make the param optional without to be allowing it to be repeatable you can use the question mark instead of asterisk, `path: "/example/:id(//d+)?` 
+~~~
+O  : optional , R : repeatable
+NO : not optional , NR : not repeatable
+
+NO - NR => { path: '/users/:userId(\\d+)' }
+NO - R  => { path: '/:users(\\d+)+' }
+O  - R  => { path: '/:users(\\d+)*' }
+O  - NR => { path: '/users/:userId(\\d+)?' }`
+~~~
+Sensitive and Strict
+
+~~~
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    // will match /users/posva but not:
+    // - /users/posva/ because of strict: true
+    // - /Users/posva because of sensitive: true
+    { path: '/users/:id', sensitive: true },
+    // will match /users, /Users, and /users/42 but not /users/ or /users/42/
+    { path: '/users/:id?' },
+  ],
+  strict: true, // applies to all routes
+})
+~~~
